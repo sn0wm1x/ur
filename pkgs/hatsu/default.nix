@@ -22,6 +22,8 @@ rustPlatform.buildRustPackage rec {
   nativeBuildInputs = [ cmake pkg-config ];
   buildInputs = [ openssl ];
 
+  cargoHash = "";
+
   OPENSSL_LIB_DIR = "${lib.getLib openssl}/lib";
   OPENSSL_INCLUDE_DIR = "${openssl.dev}/include";
 
