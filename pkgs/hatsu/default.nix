@@ -16,13 +16,13 @@ rustPlatform.buildRustPackage rec {
     owner = "importantimport";
     repo = pname;
     rev = "v${version}";
-    sha256 = "sha256-gBzhuV0SDmNwl5PkpdGxkMBn5m4vEXfv23WK7+ZzQs8=";
+    hash = "sha256-gBzhuV0SDmNwl5PkpdGxkMBn5m4vEXfv23WK7+ZzQs8=";
   };
+
+  cargoHash = "sha256-A2tl0jjKODA/qodxkIe/3V4ZDGV4X0myiduJsLtd7r0=";
 
   nativeBuildInputs = [ cmake pkg-config ];
   buildInputs = [ openssl ];
-
-  cargoHash = "";
 
   OPENSSL_LIB_DIR = "${lib.getLib openssl}/lib";
   OPENSSL_INCLUDE_DIR = "${openssl.dev}/include";
