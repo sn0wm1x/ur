@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage rec {
     owner = "importantimport";
     repo = pname;
     rev = "v${version}";
-    sha256 = "";
+    sha256 = "sha256-gBzhuV0SDmNwl5PkpdGxkMBn5m4vEXfv23WK7+ZzQs8=";
   };
 
   nativeBuildInputs = [ cmake pkg-config ];
