@@ -24,8 +24,7 @@ rustPlatform.buildRustPackage rec {
   nativeBuildInputs = [ cmake pkg-config ];
   buildInputs = [ openssl ];
 
-  OPENSSL_LIB_DIR = "${lib.getLib openssl}/lib";
-  OPENSSL_INCLUDE_DIR = "${openssl.dev}/include";
+  env = { OPENSSL_NO_VENDOR = true; };
 
   meta = with lib; {
     homepage = "https://github.com/importantimport/hatsu";
