@@ -18,6 +18,22 @@
 
 ![Build and populate cache](https://github.com/sn0wm1x/ur/workflows/Build%20and%20populate%20cache/badge.svg) [![Cachix Cache](https://img.shields.io/badge/cachix-sn0wm1x-blue.svg)](https://sn0wm1x.cachix.org)
 
+## Usage
+
+###### nix run
+
+```bash
+nix run github:sn0wm1x/ur#example-package
+```
+
+###### nix flake
+
+```nix
+home.packages = with pkgs; [
+  nur-no-pkgs.repos.sn0wm1x.example-package
+];
+```
+
 <!-- # nur-packages-template
 
 **A template for [NUR](https://github.com/nix-community/NUR) repositories**
