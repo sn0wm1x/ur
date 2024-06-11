@@ -1,4 +1,24 @@
-# nur-packages-template
+<br />
+<div align="center">
+<img src="https://github.com/sn0wm1x.png" alt="sn0wm1x" />
+</div>
+
+<h1 align="center">SN0WM1X (Nix) User Repository</h1>
+
+<div align="center">
+
+**[<kbd> <br> Lib <br> </kbd>](/lib/)** 
+**[<kbd> <br> Modules <br> </kbd>](/modules/)** 
+**[<kbd> <br> Overlays <br> </kbd>](/overlays/)** 
+**[<kbd> <br> Packages <br> </kbd>](/pkgs/)**
+
+</div>
+
+---
+
+![Build and populate cache](https://github.com/sn0wm1x/ur/workflows/Build%20and%20populate%20cache/badge.svg) [![Cachix Cache](https://img.shields.io/badge/cachix-sn0wm1x-blue.svg)](https://sn0wm1x.cachix.org)
+
+<!-- # nur-packages-template
 
 **A template for [NUR](https://github.com/nix-community/NUR) repositories**
 
@@ -17,21 +37,4 @@
    [.travis.yml](./.travis.yml). Than enable travis in your repo. You can add a cron job in the repository settings on travis to keep your cachix cache fresh
 5. Change your travis and cachix names on the README template section and delete
    the rest
-6. [Add yourself to NUR](https://github.com/nix-community/NUR#how-to-add-your-own-repository)
-
-## README template
-
-# nur-packages
-
-**My personal [NUR](https://github.com/nix-community/NUR) repository**
-
-<!-- Remove this if you don't use github actions -->
-![Build and populate cache](https://github.com/<YOUR-GITHUB-USER>/nur-packages/workflows/Build%20and%20populate%20cache/badge.svg)
-
-<!--
-Uncomment this if you use travis:
-
-[![Build Status](https://travis-ci.com/<YOUR_TRAVIS_USERNAME>/nur-packages.svg?branch=master)](https://travis-ci.com/<YOUR_TRAVIS_USERNAME>/nur-packages)
--->
-[![Cachix Cache](https://img.shields.io/badge/cachix-<YOUR_CACHIX_CACHE_NAME>-blue.svg)](https://<YOUR_CACHIX_CACHE_NAME>.cachix.org)
-
+6. [Add yourself to NUR](https://github.com/nix-community/NUR#how-to-add-your-own-repository) -->
