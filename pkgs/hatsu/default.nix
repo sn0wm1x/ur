@@ -30,7 +30,7 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://github.com/importantimport/hatsu";
     description = "Self-hosted & Fully-automated ActivityPub Bridge for Static Sites.";
     license = licenses.agpl3Only;
-    mainProgram = "hatsu";
+    mainProgram = pname;
     # maintainers = with maintainers; [ kwaa ];
   };
 }
