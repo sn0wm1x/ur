@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
 
   src = fetchFromGitHub {
     owner = "importantimport";
-    repo = pname;
+    repo = "hatsu";
     rev = "v${version}";
     hash = "sha256-4x41Ez2Rq4Bs39LN4qRluDieHx+9bS+GCjvS/cQK84Y=";
   };
@@ -23,12 +23,12 @@ rustPlatform.buildRustPackage rec {
 
   env = { OPENSSL_NO_VENDOR = true; };
 
-  meta = with lib; {
+  meta = {
     description = "Self-hosted and fully-automated ActivityPub bridge for static sites";
     homepage = "https://github.com/importantimport/hatsu";
-    license = licenses.agpl3Only;
+    license = lib.licenses.agpl3Only;
     mainProgram = "hatsu";
-    maintainers = with maintainers; [ kwaa ];
-    platforms = platforms.linux;
+    maintainers = with lib.maintainers; [ kwaa ];
+    platforms = lib.platforms.linux;
   };
 }
