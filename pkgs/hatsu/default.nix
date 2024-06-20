@@ -5,12 +5,9 @@
 , pkg-config
 , rustPlatform
 }:
-let
+rustPlatform.buildRustPackage rec {
   pname = "hatsu";
   version = "0.2.0";
-in
-rustPlatform.buildRustPackage rec {
-  inherit pname version;
 
   src = fetchFromGitHub {
     owner = "importantimport";
