@@ -24,10 +24,11 @@ rustPlatform.buildRustPackage rec {
   env = { OPENSSL_NO_VENDOR = true; };
 
   meta = with lib; {
+    description = "Self-hosted and fully-automated ActivityPub bridge for static sites";
     homepage = "https://github.com/importantimport/hatsu";
-    description = "Self-hosted & Fully-automated ActivityPub Bridge for Static Sites.";
     license = licenses.agpl3Only;
-    mainProgram = pname;
-    # maintainers = with maintainers; [ kwaa ];
+    mainProgram = "hatsu";
+    maintainers = with maintainers; [ kwaa ];
+    platforms = platforms.linux;
   };
 }
