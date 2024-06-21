@@ -17,4 +17,4 @@
   # example-package = pkgs.callPackage ./pkgs/example-package { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
-} // builtins.mapAttrs (name: _: pkgs.callPackage (./pkgs + "/${name}") { }) (builtins.readDir ./pkgs)
+} // builtins.mapAttrs (name: _: pkgs.callPackage (./pkgs/by-name + "/${name}") { }) (builtins.readDir ./pkgs/by-name)
