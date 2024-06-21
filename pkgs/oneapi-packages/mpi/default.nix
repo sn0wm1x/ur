@@ -36,6 +36,7 @@ in
 stdenvNoCC.mkDerivation ({
   pname = "mpi";
   inherit version;
+  preferLocalBuild = true;
 
   dontUnpack = true;
 
@@ -47,64 +48,7 @@ stdenvNoCC.mkDerivation ({
     rpmextract ${oneapi-runtime-mpi}
   '';
 
-  # installPhase = ''
-  #   for f in $(find . -name 'mkl*.pc') ; do
-  #     bn=$(basename $f)
-  #     substituteInPlace $f \
-  #       --replace $\{MKLROOT} "$out" \
-  #       --replace "lib/intel64" "lib"
-
-  #     sed -r -i "s|^prefix=.*|prefix=$out|g" $f
-  #   done
-
-  #   for f in $(find opt/intel -name 'mkl*iomp.pc') ; do
-  #     substituteInPlace $f --replace "../compiler/lib" "lib"
-  #   done
-
-  #   # License
-  #   install -Dm0655 -t $out/share/doc/mkl opt/intel/oneapi/mkl/${mpiVersion}/licensing/license.txt
-
-  #   # Dynamic libraries
-  #   mkdir -p $out/lib
-  #   cp -a opt/intel/oneapi/mkl/${mpiVersion}/lib/${lib.optionalString stdenvNoCC.isLinux "intel64"}/*${shlibExt}* $out/lib
-  #   cp -a opt/intel/oneapi/compiler/${mpiVersion}/${if stdenvNoCC.isDarwin then "mac" else "linux"}/compiler/lib/${lib.optionalString stdenvNoCC.isLinux "intel64_lin"}/*${shlibExt}* $out/lib
-
-  #   # Headers
-  #   cp -r opt/intel/oneapi/mkl/${mpiVersion}/include $out/
-
-  #   # CMake config
-  #   cp -r opt/intel/oneapi/mkl/${mpiVersion}/lib/cmake $out/lib
-  # '' +
-  # (if enableStatic then ''
-  #   install -Dm0644 -t $out/lib opt/intel/oneapi/mkl/${mpiVersion}/lib/${lib.optionalString stdenvNoCC.isLinux "intel64"}/*.a
-  #   install -Dm0644 -t $out/lib/pkgconfig opt/intel/oneapi/mkl/${mpiVersion}/lib/pkgconfig/*.pc
-  # '' else ''
-  #   cp opt/intel/oneapi/mkl/${mpiVersion}/lib/${lib.optionalString stdenvNoCC.isLinux "intel64"}/*${shlibExt}* $out/lib
-  #   install -Dm0644 -t $out/lib/pkgconfig opt/intel/oneapi/mkl/${mpiVersion}/lib/pkgconfig/*dynamic*.pc
-  # '') + ''
-  #   # Setup symlinks for blas / lapack
-  #   ln -s $out/lib/libmkl_rt${shlibExt} $out/lib/libblas${shlibExt}
-  #   ln -s $out/lib/libmkl_rt${shlibExt} $out/lib/libcblas${shlibExt}
-  #   ln -s $out/lib/libmkl_rt${shlibExt} $out/lib/liblapack${shlibExt}
-  #   ln -s $out/lib/libmkl_rt${shlibExt} $out/lib/liblapacke${shlibExt}
-  # '' + lib.optionalString stdenvNoCC.hostPlatform.isLinux ''
-  #   ln -s $out/lib/libmkl_rt${shlibExt} $out/lib/libblas${shlibExt}".3"
-  #   ln -s $out/lib/libmkl_rt${shlibExt} $out/lib/libcblas${shlibExt}".3"
-  #   ln -s $out/lib/libmkl_rt${shlibExt} $out/lib/liblapack${shlibExt}".3"
-  #   ln -s $out/lib/libmkl_rt${shlibExt} $out/lib/liblapacke${shlibExt}".3"
-  # '';
-
-  # fixDarwinDylibName fails for libmkl_cdft_core.dylib because the
-  # larger updated load commands do not fit. Use install_name_tool
-  # explicitly and ignore the error.
-  # postFixup = lib.optionalString stdenvNoCC.isDarwin ''
-  #   for f in $out/lib/*.dylib; do
-  #     install_name_tool -id $out/lib/$(basename $f) $f || true
-  #   done
-  #   install_name_tool -change @rpath/libiomp5.dylib $out/lib/libiomp5.dylib $out/lib/libmkl_intel_thread.dylib
-  #   install_name_tool -change @rpath/libtbb.12.dylib $out/lib/libtbb.12.dylib $out/lib/libmkl_tbb_thread.dylib
-  #   install_name_tool -change @rpath/libtbbmalloc.2.dylib $out/lib/libtbbmalloc.2.dylib $out/lib/libtbbmalloc_proxy.dylib
-  # '';
+  # TODO: installPhase
 
   # Per license agreement, do not modify the binary
   dontStrip = true;
@@ -122,5 +66,6 @@ stdenvNoCC.mkDerivation ({
     license = licenses.issl;
     platforms = [ "x86_64-linux" ];
     maintainers = with maintainers; [ kwaa ];
+    broken = true; # WIP
   };
 })
