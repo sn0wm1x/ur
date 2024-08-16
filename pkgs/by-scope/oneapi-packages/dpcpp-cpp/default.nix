@@ -9,14 +9,14 @@ let
   rel = "1079";
 in
 stdenvNoCC.mkDerivation ({
-  pname = "intel-oneapi-compiler-dpcpp-cpp";
+  pname = "intel-oneapi-dpcpp-cpp";
   version = "${major}.${minor}.${rel}";
   preferLocalBuild = true;
 
   src = fetchurl
     {
-      url = "https://yum.repos.intel.com/oneapi/intel-oneapi-compiler-dpcpp-cpp-${major}-${major}.${minor}-${rel}.x86_64.rpm";
-      hash = "sha256-vQKfLOO9zkYFRpvzK4nhRtzeqRCU/dna7vBkWNpKqgw=";
+      url = "https://yum.repos.intel.com/oneapi/intel-oneapi-dpcpp-cpp-${major}-${major}.${minor}-${rel}.x86_64.rpm";
+      hash = "sha256-iWG1HiCFbJ86FBrTUkXVEUJFI4qnXMM3EYrwETRhYiM=";
     };
 
   nativeBuildInputs = [ rpmextract ];
@@ -30,6 +30,8 @@ stdenvNoCC.mkDerivation ({
     mkdir $out
     cd $out
     rpmextract $src
+
+    ls $out
 
     mkdir $out/bin
     mv $out/opt/intel/oneapi/compiler/${major}/bin/ $out/bin/
