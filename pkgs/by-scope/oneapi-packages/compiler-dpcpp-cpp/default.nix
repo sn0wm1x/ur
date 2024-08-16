@@ -16,7 +16,7 @@ stdenvNoCC.mkDerivation ({
   src = fetchurl
     {
       url = "https://yum.repos.intel.com/oneapi/intel-oneapi-compiler-dpcpp-cpp-${major}-${major}.${minor}-${rel}.x86_64.rpm";
-      hash = "";
+      hash = "sha256-vQKfLOO9zkYFRpvzK4nhRtzeqRCU/dna7vBkWNpKqgw=";
     };
 
   nativeBuildInputs = [ rpmextract ];
