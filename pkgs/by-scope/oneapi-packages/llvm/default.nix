@@ -19,7 +19,10 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ cmake ninja python3 ];
   buildInputs = [ ];
 
-  # cmakeFlags = with stdenv; [];
+  cmakeFlags = [
+    "-DLLVM_ENABLE_FFI=ON"
+    "-DSYCL_PI_TESTS=OFF"
+  ];
 
   buildPhase = ''
     python3 $src/buildbot/configure.py -t release
