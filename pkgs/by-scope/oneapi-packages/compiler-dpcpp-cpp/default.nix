@@ -21,18 +21,23 @@ stdenvNoCC.mkDerivation ({
 
   nativeBuildInputs = [ rpmextract ];
 
-  unpackPhase = "rpmextract $src";
-
+  dontUnpack = true;
   dontBuild = true;
 
   installPhase = ''
     runHook preInstall
 
+    mkdir $out
+    cd $out
+    rpmextract $src
+
     mkdir $out/bin
-    mv opt/intel/oneapi/compiler/${major}/bin/ $out/bin/
+    mv $out/opt/intel/oneapi/compiler/${major}/bin/ $out/bin/
 
     mkdir $out/lib
-    mv opt/intel/oneapi/compiler/${major}/lib/ $out/lib/
+    mv $out/opt/intel/oneapi/compiler/${major}/lib/ $out/lib/
+
+    rm -r $out/opt
 
     runHook postInstall
   '';
