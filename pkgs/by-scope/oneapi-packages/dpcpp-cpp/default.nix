@@ -44,14 +44,13 @@ stdenvNoCC.mkDerivation ({
     runHook postInstall
   '';
 
-  meta = with lib; {
-    broken = true; # WIP
+  meta = {
     description = "Intel oneAPI DPC++/C++ Compiler";
-    longDescription = " Standards driven high performance cross architecture DPC++/C++ compiler";
+    longDescription = "Standards driven high performance cross architecture DPC++/C++ compiler";
     homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi.html";
-    sourceProvenance = with sourceTypes; [ binaryNativeCode ];
-    license = licenses.issl;
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+    license = lib.licenses.issl;
     platforms = [ "x86_64-linux" ];
-    maintainers = with maintainers; [ kwaa ];
+    maintainers = with lib.maintainers; [ kwaa ];
   };
 })
