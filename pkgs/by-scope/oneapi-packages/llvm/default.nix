@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
     owner = "intel";
     repo = "llvm";
     rev = "refs/tags/${version}";
-    sha256 = "";
+    hash = "sha256-bAnkh+dY2M6rPYCKmfXwlN2Bpra0NKMQRs3ALABoscM=";
   };
 
   nativeBuildInputs = [ cmake ninja python3 ];
