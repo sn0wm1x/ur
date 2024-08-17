@@ -63,6 +63,7 @@ stdenvNoCC.mkDerivation ({
   '';
 
   meta = {
+    broken = true;
     description = "Intel oneAPI DPC++/C++ Compiler";
     longDescription = "Standards driven high performance cross architecture DPC++/C++ compiler";
     homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi.html";
