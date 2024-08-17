@@ -1,6 +1,7 @@
 { lib
 , stdenvNoCC
 , fetchurl
+, autoPatchelfHook
 , rpmextract
 }:
 let
@@ -19,7 +20,7 @@ stdenvNoCC.mkDerivation ({
       hash = "sha256-iWG1HiCFbJ86FBrTUkXVEUJFI4qnXMM3EYrwETRhYiM=";
     };
 
-  nativeBuildInputs = [ rpmextract ];
+  nativeBuildInputs = [ autoPatchelfHook rpmextract ];
 
   dontUnpack = true;
   dontBuild = true;
