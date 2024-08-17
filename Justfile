@@ -13,3 +13,11 @@ build-broken package:
 # build unfree package.
 build-unfree package:
   NIXPKGS_ALLOW_UNFREE=1 nix build .#{{package}} --impure
+
+# run package.
+run package:
+  nix run .#{{package}}
+
+# update flake lock.
+up:
+  nix flake update
