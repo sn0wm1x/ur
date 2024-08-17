@@ -34,10 +34,10 @@ stdenvNoCC.mkDerivation ({
     ls $out
 
     mkdir $out/bin
-    mv $out/opt/intel/oneapi/compiler/${major}/bin/ $out/bin/
+    mv $out/opt/intel/oneapi/compiler/${major}/bin/* $out/bin/
 
     mkdir $out/lib
-    mv $out/opt/intel/oneapi/compiler/${major}/lib/ $out/lib/
+    mv $out/opt/intel/oneapi/compiler/${major}/lib/* $out/lib/
 
     rm -r $out/opt
 
