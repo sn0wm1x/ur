@@ -1,8 +1,12 @@
 { lib
+, stdenv
 , stdenvNoCC
 , fetchurl
 , autoPatchelfHook
 , rpmextract
+, ocl-icd
+, onnxruntime
+, zlib
 }:
 let
   major = "2024.2";
@@ -21,6 +25,13 @@ stdenvNoCC.mkDerivation ({
     };
 
   nativeBuildInputs = [ autoPatchelfHook rpmextract ];
+
+  buildInputs = [
+    stdenv.cc.cc.lib
+    ocl-icd
+    onnxruntime
+    zlib
+  ];
 
   dontUnpack = true;
   dontBuild = true;
