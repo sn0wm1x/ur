@@ -5,7 +5,7 @@
 , autoPatchelfHook
 , rpmextract
 , ocl-icd
-, onnxruntime
+  # , onnxruntime
 , zlib
 }:
 let
@@ -29,7 +29,7 @@ stdenvNoCC.mkDerivation ({
   buildInputs = [
     stdenv.cc.cc.lib
     ocl-icd
-    onnxruntime
+    # onnxruntime
     zlib
   ];
 
@@ -50,6 +50,12 @@ stdenvNoCC.mkDerivation ({
 
     mkdir $out/lib
     mv $out/opt/intel/oneapi/compiler/${major}/lib/* $out/lib/
+
+    # remove failed bin
+    # error: auto-patchelf could not satisfy dependency libonnxruntime.1.12.22.721.so
+    rm $out/bin/opencl-aot
+    rm $out/bin/compiler/clang
+    rm $out/bin/compiler/llvm-dwp
 
     rm -r $out/opt
 
