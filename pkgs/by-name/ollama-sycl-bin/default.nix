@@ -1,5 +1,13 @@
-{ lib, stdenv, fetchurl, autoPatchelfHook }:
-stdenv.mkDerivation rec {
+{ lib
+, stdenv
+, fetchurl
+, autoPatchelfHook
+, makeWrapper
+  # , intel-compute-runtime
+, callPackage
+}:
+let intel-compute-runtime-fix = callPackage ../intel-compute-runtime-fix { };
+in stdenv.mkDerivation rec {
   pname = "ollama-sycl-bin";
   version = "0.0.2";
 
@@ -11,6 +19,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     autoPatchelfHook
+    makeWrapper
   ];
 
   buildInputs = [
@@ -25,7 +34,9 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     runHook preInstall
-    install -m755 -D ollama $out/bin/ollama
+    install -m755 -D ollama $out/bin/ollama-unwrapped
+    makeWrapper $out/bin/ollama-unwrapped $out/bin/ollama \
+      --set LD_LIBRARY_PATH ${lib.makeLibraryPath [ intel-compute-runtime-fix ]}
     runHook postInstall
   '';
 
