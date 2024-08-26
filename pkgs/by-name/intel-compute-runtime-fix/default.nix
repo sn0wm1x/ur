@@ -1,6 +1,7 @@
 { intel-compute-runtime }:
 intel-compute-runtime.overrideAttrs (old: {
   pname = "intel-compute-runtime-fix";
+  preferLocalBuild = true;
 
   postInstall = ''
     # Avoid clash with intel-ocl
