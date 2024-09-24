@@ -30,7 +30,6 @@ stdenv.mkDerivation rec {
     install -Dm755 naive $out/bin/naiveproxy
 
     mkdir -p $out/share/doc/naiveproxy
-    install -Dm644 README.md $out/share/doc/naiveproxy/README.md
     install -Dm644 USAGE.txt $out/share/doc/naiveproxy/USAGE.txt
     
     mkdir -p $out/share/licenses/naiveproxy
