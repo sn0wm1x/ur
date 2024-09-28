@@ -2,11 +2,11 @@
 let
   cfg = config.services.hatsu;
   env = {
+    HATSU_DATABASE_URL = cfg.database.url;
     HATSU_LISTEN_HOST = cfg.host;
     HATSU_LISTEN_PORT = toString cfg.port;
     HATSU_DOMAIN = cfg.domain;
     HATSU_PRIMARY_ACCOUNT = cfg.primaryAccount;
-    HATSU_DATABASE_URL = cfg.database.url;
   } // (
     lib.mapAttrs (_: toString) cfg.settings
   );
