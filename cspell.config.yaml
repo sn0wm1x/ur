@@ -3,13 +3,16 @@ ignorePaths: []
 dictionaryDefinitions: []
 dictionaries: []
 words:
+  - arpk
   - cachix
   - fetchurl
   - fetchzip
   - gltf
   - kwaa
   - libgcc
+  - moeru
   - nixpkgs
+  - passthru
   - patchelf
   - pname
   - stdenv
