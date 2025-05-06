@@ -1,0 +1,16 @@
+version: "0.2"
+ignorePaths: []
+dictionaryDefinitions: []
+dictionaries: []
+words:
+  - fetchurl
+  - fetchzip
+  - gltf
+  - kwaa
+  - libgcc
+  - nixpkgs
+  - patchelf
+  - pname
+  - stdenv
+ignoreWords: []
+import: []
