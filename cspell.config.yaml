@@ -8,6 +8,8 @@ words:
   - fetchurl
   - fetchzip
   - gltf
+  - hatsu
+  - importantimport
   - kwaa
   - libgcc
   - moeru
