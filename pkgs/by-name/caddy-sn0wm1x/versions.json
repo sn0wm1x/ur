@@ -1,7 +1,8 @@
 {
   "forwardproxyRevision": "e747854e78743dba85c039b38ed185fb11d93667",
   "patchHash": "sha256-6rfFMqmxvbR989QsgPupsThwH5sUMYHvsRkpxm/Z3zA=",
-  "hash": "sha256-K/VFLGSfD6BnLSeETGhA8/vVdPYjuMD9ZpoqJmYif/8=",
+  "idleTimeoutPatchHash": "sha256-2ZMVuvoT3+mTt98eceQQKEspEkDMuCBQvAoTV8uF6WI=",
+  "hash": "sha256-rUYf5NmDdFicL0GL3LPIxG26pw1kuxH1H97RE5qVXwc=",
   "plugins": {
     "forwardproxy": {
       "repo": "klzgrad/forwardproxy",
